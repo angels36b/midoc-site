@@ -1,3 +1,5 @@
+🔗 **[Перейти к Отчёту по безопасности агента (Telegram) →](security-report.html)**
+
 ---
 layout: default
 title: Сравнительный анализ SSG

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.9.1 -->
+<title>Сравнительный анализ SSG</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Сравнительный анализ SSG" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/Sendproject/" />
+<meta property="og:url" content="http://localhost:4000/Sendproject/" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Сравнительный анализ SSG" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Сравнительный анализ SSG","url":"http://localhost:4000/Sendproject/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="http://localhost:4000/"></a></h1>
+
+        
+
+        <p></p>
+
+        
+
+        
+
+        
+      </header>
+      <section>
+
+      <h1 id="сравнительный-анализ-генераторов-статических-сайтов">Сравнительный анализ генераторов статических сайтов</h1>
+
+<p>Сравнение четырёх SSG — <strong>MkDocs</strong>, <strong>Sphinx</strong>, <strong>Pelican</strong> и <strong>Quarto</strong> — применительно к задаче публикации результатов экспериментов.</p>
+
+<h2 id="1-матрица-оценок">1. Матрица оценок</h2>
+
+<p>Матрица построена по 18 критериям, сгруппированным в три блока: научный контент, вёрстка и шаблоны, эксплуатационные характеристики. Каждый критерий имеет вес, отражающий его значимость для публикации экспериментальных результатов.</p>
+
+<p><strong>Обозначения групп:</strong></p>
+<ul>
+  <li><strong>1. Контент</strong> — научный контент</li>
+  <li><strong>2. Вёрстка</strong> — вёрстка и шаблоны</li>
+  <li><strong>3. Эксплуатация</strong> — эксплуатационные характеристики</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Группа</th>
+      <th>Критерий</th>
+      <th>Вес</th>
+      <th>MkDocs</th>
+      <th>Sphinx</th>
+      <th>Pelican</th>
+      <th>Quarto</th>
+      <th>Ограничения</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1. Контент</td>
+      <td>Форматы исходников (.md, .rst, MyST, .ipynb, .qmd)</td>
+      <td>5%</td>
+      <td>7</td>
+      <td>10</td>
+      <td>5</td>
+      <td>10</td>
+      <td>MkDocs: нет .rst/MyST/.qmd<br />Sphinx: нет .qmd<br />Pelican: нет MyST/.ipynb/.qmd<br />Quarto: —</td>
+    </tr>
+    <tr>
+      <td>1. Контент</td>
+      <td>Формулы LaTeX (MathJax/KaTeX, amsmath)</td>
+      <td>7%</td>
+      <td>6</td>
+      <td>10</td>
+      <td>3</td>
+      <td>10</td>
+      <td>MkDocs: нет автонумерации и ссылок<br />Sphinx: —<br />Pelican: нет amsmath<br />Quarto: —</td>
+    </tr>
+    <tr>
+      <td>1. Контент</td>
+      <td>Фигуры (легенды, автонумерация, ссылки)</td>
+      <td>6%</td>
+      <td>5</td>
+      <td>10</td>
+      <td>2</td>
+      <td>10</td>
+      <td>MkDocs: нет автонумерации и подфигур<br />Sphinx: нужны расширения для сеток<br />Pelican: нет автонумерации и подфигур<br />Quarto: —</td>
+    </tr>
+    <tr>
+      <td>1. Контент</td>
+      <td>Таблицы (объединение ячеек, CSV, DataFrame)</td>
+      <td>5%</td>
+      <td>6</td>
+      <td>10</td>
+      <td>4</td>
+      <td>9.5</td>
+      <td>MkDocs: нет объединения ячеек и CSV<br />Sphinx: сложное ручное редактирование<br />Pelican: нет объединения и CSV<br />Quarto: —</td>
+    </tr>
+    <tr>
+      <td>1. Контент</td>
+      <td>Интерактивные визуализации и размер (КБ)</td>
+      <td>5%</td>
+      <td>8</td>
+      <td>8</td>
+      <td>4</td>
+      <td>9.5</td>
+      <td>MkDocs: дублирование JS, +3МБ<br />Sphinx: рост KB без CDN<br />Pelican: 100% вручную, тяжёлые страницы<br />Quarto: —</td>
+    </tr>
+    <tr>
+      <td>1. Контент</td>
+      <td>Выполняемый контент (кэш Notebooks)</td>
+      <td>7%</td>
+      <td>6</td>
+      <td>9</td>
+      <td>1</td>
+      <td>9.5</td>
+      <td>MkDocs: нет движка выполнения/кэша<br />Sphinx: требует настройки<br />Pelican: нет выполнения и кэша<br />Quarto: —</td>
+    </tr>
+    <tr>
+      <td>1. Контент</td>
+      <td>Библиография (BibTeX, автоматические стили)</td>
+      <td>5%</td>
+      <td>6</td>
+      <td>10</td>
+      <td>2</td>
+      <td>10</td>
+      <td>MkDocs: ограниченная CSL<br />Sphinx: многословный синтаксис<br />Pelican: устаревшие плагины<br />Quarto: —</td>
+    </tr>
+    <tr>
+      <td>1. Контент</td>
+      <td>Элементы (сноски, глоссарий, нумерация)</td>
+      <td>5%</td>
+      <td>7</td>
+      <td>9</td>
+      <td>4</td>
+      <td>9</td>
+      <td>MkDocs: нет глоссария и нумерации<br />Sphinx: настройка в индексе<br />Pelican: нет глоссария и нумерации<br />Quarto: —</td>
+    </tr>
+    <tr>
+      <td>2. Вёрстка</td>
+      <td>Мультиколонка (сетка/карточки в адаптивном дизайне)</td>
+      <td>10%</td>
+      <td>10</td>
+      <td>9</td>
+      <td>4</td>
+      <td>9</td>
+      <td>MkDocs: сворачивание в 1 колонку<br />Sphinx: нужна установка расширения<br />Pelican: нет сеток и адаптивности<br />Quarto: сворачивание в 1 колонку</td>
+    </tr>
+    <tr>
+      <td>2. Вёрстка</td>
+      <td>Вариативность шаблонов (Jinja2, переопределения)</td>
+      <td>10%</td>
+      <td>9</td>
+      <td>8</td>
+      <td>7</td>
+      <td>8</td>
+      <td>MkDocs: ориентировано на документацию<br />Sphinx: высокий порог Docutils<br />Pelican: требует форка темы<br />Quarto: не использует Jinja2</td>
+    </tr>
+    <tr>
+      <td>2. Вёрстка</td>
+      <td>Единый источник → Несколько форматов вывода (PDF, LaTeX)</td>
+      <td>10%</td>
+      <td>7</td>
+      <td>9</td>
+      <td>2</td>
+      <td>10</td>
+      <td>MkDocs: нет нативного LaTeX<br />Sphinx: сложная настройка LaTeX<br />Pelican: нет экспорта PDF/LaTeX<br />Quarto: —</td>
+    </tr>
+    <tr>
+      <td>3. Эксплуатация</td>
+      <td>Версионирование документации</td>
+      <td>3.5%</td>
+      <td>9</td>
+      <td>9</td>
+      <td>2</td>
+      <td>7</td>
+      <td>MkDocs: —<br />Sphinx: правки HTML для переключателя<br />Pelican: нет встроенного<br />Quarto: нет CLI как mike</td>
+    </tr>
+    <tr>
+      <td>3. Эксплуатация</td>
+      <td>Локальный поиск (эффективность для русского языка: стеммер)</td>
+      <td>3.5%</td>
+      <td>8</td>
+      <td>9</td>
+      <td>4</td>
+      <td>7.5</td>
+      <td>MkDocs: индекс быстро растёт<br />Sphinx: классический интерфейс<br />Pelican: нет встроенного поиска<br />Quarto: слабее стемминг</td>
+    </tr>
+    <tr>
+      <td>3. Эксплуатация</td>
+      <td>Локализация (i18n)</td>
+      <td>3.5%</td>
+      <td>8</td>
+      <td>10</td>
+      <td>6</td>
+      <td>8</td>
+      <td>MkDocs: нет gettext<br />Sphinx: нужно внешнее ПО<br />Pelican: ручное дублирование<br />Quarto: нет gettext</td>
+    </tr>
+    <tr>
+      <td>3. Эксплуатация</td>
+      <td>Автодокументирование кода (docstrings)</td>
+      <td>4.5%</td>
+      <td>8</td>
+      <td>10</td>
+      <td>2</td>
+      <td>6</td>
+      <td>MkDocs: менее зрелое на сложном коде<br />Sphinx: —<br />Pelican: не анализирует API<br />Quarto: ориентировано на данные</td>
+    </tr>
+    <tr>
+      <td>3. Эксплуатация</td>
+      <td>Расширяемость (плагины, хуки)</td>
+      <td>3.5%</td>
+      <td>8</td>
+      <td>9</td>
+      <td>6</td>
+      <td>8.5</td>
+      <td>MkDocs: AST ограничен<br />Sphinx: высокий порог API<br />Pelican: менее активная экосистема<br />Quarto: нужен Lua</td>
+    </tr>
+    <tr>
+      <td>3. Эксплуатация</td>
+      <td>Время компиляции</td>
+      <td>3.5%</td>
+      <td>9</td>
+      <td>7</td>
+      <td>9</td>
+      <td>8</td>
+      <td>MkDocs: замедление при тысячах MathJax<br />Sphinx: тяжёлая холодная сборка<br />Pelican: нет кэша выполнения<br />Quarto: тяжёлая холодная сборка PDF</td>
+    </tr>
+    <tr>
+      <td>3. Эксплуатация</td>
+      <td>Зрелость, лицензия и активность</td>
+      <td>3%</td>
+      <td>9</td>
+      <td>10</td>
+      <td>6</td>
+      <td>9</td>
+      <td>MkDocs: —<br />Sphinx: —<br />Pelican: активность на плато<br />Quarto: —</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="итоговые-взвешенные-оценки">Итоговые взвешенные оценки</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Генератор</th>
+      <th>Взвешенная оценка</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Sphinx</strong></td>
+      <td>≈ 9.12 / 10</td>
+    </tr>
+    <tr>
+      <td><strong>Quarto</strong></td>
+      <td>≈ 8.97 / 10</td>
+    </tr>
+    <tr>
+      <td><strong>MkDocs</strong></td>
+      <td>≈ 7.5–8.0 / 10</td>
+    </tr>
+    <tr>
+      <td><strong>Pelican</strong></td>
+      <td>≈ 4.5–5.5 / 10</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="радар-по-тематическим-осям">Радар по тематическим осям</h3>
+
+<p><img src="/assets/radar_ssg.png" alt="Сравнение SSG по тематическим осям" /></p>
+
+<h2 id="2-обоснование-весов">2. Обоснование весов</h2>
+
+<p>Веса назначаются в соответствии с уровнем функциональности, который каждый критерий привносит в конкретную задачу: публикацию результатов эксперимента.</p>
+
+<p><strong>Научный контент — 65%.</strong> Это ядро отчёта. Он объединяет 8 критериев, без которых документ не может существовать как экспериментальная публикация: форматы исходников (5%), формулы LaTeX с нумерацией и ссылками (7%), рисунки с автонумерацией (6%), таблицы, генерируемые из DataFrame (5%), интерактивные визуализации (5%), исполнение и кэширование ноутбуков (7%), библиография BibTeX (5%) и такие элементы, как глоссарий и нумерация (5%). Без этих компонентов сайт не выполняет свою научную задачу, поэтому на них приходится наибольшая часть веса.</p>
+
+<p><strong>Вёрстка и шаблоны — 20%.</strong> Их роль — пространственное распределение, визуальная поддержка и экспорт документа. Включает многоколоночную вёрстку (10%), настраиваемые шаблоны без форка (10%) и экспорт в PDF/LaTeX из единого источника. Это 20%, потому что влияет на представление, но не на содержание: хороший отчёт с плохой вёрсткой остаётся корректным, но плохо написанный не спасается хорошей вёрсткой.</p>
+
+<p><strong>Эксплуатационные характеристики — 15%.</strong> Объединяют вспомогательные функции: версионирование, локальный поиск, i18n, автодокументирование, расширяемость, время сборки и зрелость проекта. Их вес меньше, потому что они не обуславливают строгость отчёта, а только удобство использования и поддержку сайта в долгосрочной перспективе.</p>
+
+<h2 id="3-аргументированный-вывод">3. Аргументированный вывод</h2>
+
+<p>Оптимальным генератором является <strong>Sphinx</strong> (≈ 9.12/10). Он выигрывает за счёт превосходства в научном и эксплуатационном контенте: автодокументирование из docstrings, зрелая библиография BibTeX/CSL, автонумерация и перекрёстные ссылки, поиск с русской морфологией, i18n на стандарте gettext и устоявшаяся экосистема. Его слабые места — исполнение ноутбуков, которое решается через <code class="language-plaintext highlighter-rouge">myst-nb</code> + Jupyter-Cache, и многоформатный экспорт, ограниченный LaTeX/PDF.</p>
+
+<h2 id="4-условия-при-которых-вывод-меняется">4. Условия, при которых вывод меняется</h2>
+
+<p>Если задача состоит в <strong>документировании программного обеспечения</strong>, а не в публикации результатов экспериментов, оптимальным генератором становится <strong>MkDocs</strong>. В этом сценарии он выигрывает за счёт скорости сборки, темы Material и автодокументирования из docstrings через <code class="language-plaintext highlighter-rouge">mkdocstrings</code>.</p>
+
+
+      </section>
+      <footer>
+        
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="/assets/js/scale.fix.js"></script>
+  </body>
+</html>
